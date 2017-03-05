@@ -12,6 +12,18 @@
 
 	</head>
 	<body>
+		<div id="header" class="mui-bar mui-bar-nav">
+			<div class="mui-input-row mui-search" onclick="showSoftInput()" style="width: 90%;float: left;">
+				<input type="search" class="mui-input-clear" placeholder="" data-input-clear="1" data-input-search="1">
+				<span class="mui-icon mui-icon-clear mui-hidden"></span>
+				<span class="mui-placeholder">
+					<span class="mui-icon mui-icon-search"></span>
+					<span></span>
+				</span>
+			</div>
+			<span class="mui-icon mui-icon-camera" style="float: right;" onclick="takePhotos()"></span>
+
+		</div>
 		<div class="mui-content">
 			<div id="slider" class="mui-slider">
 				<div class="mui-slider-group mui-slider-loop">
@@ -104,5 +116,48 @@
 		slider.slider({
 			interval: 5000
 		});
+		
+		mui.plusReady(function(){
+			initNativeObjects();
+		});
+		
+		function takePhotos(){
+			var camera = plus.camera.getCamera(1);
+			camera.captureImage(
+				function(path){
+					alert(path);
+				}
+			);
+		}
+		
+		var nativeWebview, imm, InputMethodManager;
+		var initNativeObjects = function() {
+			if (mui.os.android) {
+				var main = plus.android.runtimeMainActivity();
+				var Context = plus.android.importClass("android.content.Context");
+				InputMethodManager = plus.android.importClass("android.view.inputmethod.InputMethodManager");
+				imm = main.getSystemService(Context.INPUT_METHOD_SERVICE);
+			} else {
+				nativeWebview = plus.webview.currentWebview().nativeInstanceObject();
+			}
+		};
+		
+		var showSoftInput = function() {
+			if (mui.os.android) {
+				imm.toggleSoftInput(0, InputMethodManager.SHOW_FORCED);
+			} else {
+				nativeWebview.plusCallMethod({
+					"setKeyboardDisplayRequiresUserAction": false
+				});
+			}
+			setTimeout(function() {
+				var inputElem = document.querySelector('input');
+				inputElem.focus();
+				inputElem.placeholder='pentagram';
+				inputElem.parentNode.classList.add('mui-active'); //第一个是search，加上激活样式
+			}, 200);
+		};
+		
+		
 	</script>
 </html>

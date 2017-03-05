@@ -167,7 +167,8 @@
 					"js/mui.enterfocus.js",
 					"images/sinaweibo.png",
 					"images/weixin.png",
-					"images/qq.png"
+					"images/qq.png",
+					"fonts/mui.ttf"
 				],
 				"refer": [
 					"main.html",
@@ -248,7 +249,9 @@
 					"images/yuantiao.jpg",
 					"images/shuijiao.jpg",
 					"css/home.css",
-					"images/logo.png"
+					"images/logo.png",
+					"js/mui.min.js",
+					"fonts/mui.ttf"
 				],
 				"refer": [],
 				"priority": 0
@@ -269,7 +272,8 @@
 					"css/message.css",
 					"fonts/mui-icons-extra.ttf",
 					"css/icons-extra.css",
-					"images/logo.png"
+					"images/logo.png",
+					"fonts/mui.ttf"
 				],
 				"refer": [],
 				"priority": 0
@@ -277,14 +281,16 @@
 			"classification.html": {
 				"resources": [
 					"fonts/mui.ttf",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"css/icons-extra.css"
 				],
 				"refer": [],
 				"priority": 0
 			},
 			"circle.html": {
 				"resources": [
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"js/mui.min.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -296,9 +302,13 @@
 					"images/yuantiao.jpg",
 					"js/mui.min.js",
 					"fonts/mui.ttf",
-					"images/shuijiao.jpg"
+					"images/shuijiao.jpg",
+					"images/qq.png",
+					"images/60x60.gif"
 				],
-				"refer": [],
+				"refer": [
+					"index.html"
+				],
 				"priority": 0
 			}
 		},

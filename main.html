@@ -44,7 +44,7 @@
 				<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
 				<span class="mui-tab-label">消息</span>
 			</a>
-			<a class="mui-tab-item" href="#">
+			<a class="mui-tab-item" href="mine.html">
 				<span class="mui-icon mui-icon-person"></span>
 				<span class="mui-tab-label">我的</span>
 			</a>
@@ -53,9 +53,9 @@
 		<script type="text/javascript" charset="utf-8"> 
 			 //mui初始化
 			mui.init();
-			var subpages = ['home.html', 'classification.html', 'circle.html', 'message.html'];
+			var subpages = ['home.html', 'classification.html', 'circle.html', 'message.html','mine.html'];
 			var subpage_style = {
-				top: '45px',
+				top: '0px',
 				bottom: '51px'
 			};
 			
@@ -64,7 +64,7 @@
 			 //创建子页面，首个选项卡页面显示，其它均隐藏；
 			mui.plusReady(function() {
 				var self = plus.webview.currentWebview();
-				for (var i = 0; i < 4; i++) {
+				for (var i = 0; i < 5; i++) {
 					var temp = {};
 					var sub = plus.webview.create(subpages[i], subpages[i], subpage_style);
 					if (i > 0) {
@@ -89,14 +89,13 @@
 				}
 				//更换标题
 				if(this.querySelector('.mui-tab-label').innerHTML=='首页'){
-					title.innerHTML = '<div class="mui-input-row mui-search" onclick="showSoftInput()" style="width: 90%;float: left;"><input type="search" class="mui-input-clear" placeholder="" data-input-clear="1" data-input-search="1"><span class="mui-icon mui-icon-clear mui-hidden"></span><span class="mui-placeholder"><span class="mui-icon mui-icon-search"></span><span></span></span></div><span class="mui-icon mui-icon-camera" style="float: right;" onclick="takePhotos()"></span>';
-					
+					title.innerHTML = '';
 				}else if(this.querySelector('.mui-tab-label').innerHTML=='分类'){
-					title.innerHTML = '<div class="mui-input-row mui-search" onclick="showSoftInput()" style="width: 90%;float: left;"><input type="search" class="mui-input-clear" placeholder="" data-input-clear="1" data-input-search="1"><span class="mui-icon mui-icon-clear mui-hidden"></span><span class="mui-placeholder"><span class="mui-icon mui-icon-search"></span><span></span></span></div><span class="mui-icon-extra mui-icon-extra-cart" style="float: right;margin-top: 6px;" onclick="takePhotos()"></span>';
+					title.innerHTML = '';
 				}else if(this.querySelector('.mui-tab-label').innerHTML=='消息'){
-					title.innerHTML = '<h1 class="mui-title">'+this.querySelector('.mui-tab-label').innerHTML+'</h1>'+'<a class="mui-icon mui-icon-gear mui-pull-right"></a>';
+					title.innerHTML = '';
 				}else if(this.querySelector('.mui-tab-label').innerHTML=='我的'){
-					mui.openWindow('mine.html');
+					title.innerHTML = '';
 				}
 				
 				//显示目标选项卡
