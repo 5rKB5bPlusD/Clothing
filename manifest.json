@@ -251,7 +251,8 @@
 					"css/home.css",
 					"images/logo.png",
 					"js/mui.min.js",
-					"fonts/mui.ttf"
+					"fonts/mui.ttf",
+					"comment.html"
 				],
 				"refer": [],
 				"priority": 0
@@ -273,7 +274,8 @@
 					"fonts/mui-icons-extra.ttf",
 					"css/icons-extra.css",
 					"images/logo.png",
-					"fonts/mui.ttf"
+					"fonts/mui.ttf",
+					"mine.html"
 				],
 				"refer": [],
 				"priority": 0
@@ -282,7 +284,8 @@
 				"resources": [
 					"fonts/mui.ttf",
 					"css/mui.min.css",
-					"css/icons-extra.css"
+					"css/icons-extra.css",
+					"fonts/mui-icons-extra.ttf"
 				],
 				"refer": [],
 				"priority": 0
@@ -304,11 +307,21 @@
 					"fonts/mui.ttf",
 					"images/shuijiao.jpg",
 					"images/qq.png",
-					"images/60x60.gif"
+					"images/60x60.gif",
+					"message.html"
 				],
 				"refer": [
 					"index.html"
 				],
+				"priority": 0
+			},
+			"comment.html": {
+				"resources": [
+					"css/home.css",
+					"css/mui.min.css",
+					"home.html"
+				],
+				"refer": [],
 				"priority": 0
 			}
 		},

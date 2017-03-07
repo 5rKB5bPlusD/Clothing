@@ -12,7 +12,7 @@
 
 	</head>
 	<body>
-		<div id="header" class="mui-bar mui-bar-nav">
+		<header id="header" class="mui-bar mui-bar-nav">
 			<div class="mui-input-row mui-search" onclick="showSoftInput()" style="width: 90%;float: left;">
 				<input type="search" class="mui-input-clear" placeholder="" data-input-clear="1" data-input-search="1">
 				<span class="mui-icon mui-icon-clear mui-hidden"></span>
@@ -23,42 +23,42 @@
 			</div>
 			<span class="mui-icon mui-icon-camera" style="float: right;" onclick="takePhotos()"></span>
 
-		</div>
+		</header>
 		<div class="mui-content">
 			<div id="slider" class="mui-slider">
 				<div class="mui-slider-group mui-slider-loop">
 					<div class="mui-slider-item mui-slider-item-duplicate">
-						<a href="#">
+						<a href="comment.html?yuantiao">
 							<img src="images/yuantiao.jpg">
 						</a>
 					</div>
 					<!-- 第一张 -->
 					<div class="mui-slider-item">
-						<a href="#">
+						<a href="comment.html?shuijiao">
 							<img src="images/shuijiao.jpg">
 						</a>
 					</div>
 					<!-- 第二张 -->
 					<div class="mui-slider-item">
-						<a href="#">
+						<a href="comment.html?muwu">
 							<img src="images/muwu.jpg">
 						</a>
 					</div>
 					<!-- 第三张 -->
 					<div class="mui-slider-item">
-						<a href="#">
+						<a href="comment.html?cbd">
 							<img src="images/cbd.jpg">
 						</a>
 					</div>
 					<!-- 第四张 -->
 					<div class="mui-slider-item">
-						<a href="#">
+						<a href="comment.html?yuantiao">
 							<img src="images/yuantiao.jpg">
 						</a>
 					</div>
 					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
 					<div class="mui-slider-item mui-slider-item-duplicate">
-						<a href="#">
+						<a href="comment.html?shuijiao">
 							<img src="images/shuijiao.jpg">
 						</a>
 					</div>
@@ -84,19 +84,19 @@
 			<div style="margin-top:50px">
 				<ul class="mui-table-view mui-grid-view">
 					<li class="mui-table-view-cell mui-media mui-col-xs-6">
-		            	<a href="#">
+		            	<a href="comment.html?shuijiao">
 			                <img class="mui-media-object" src="images/shuijiao.jpg">
 			                <div class="mui-media-body author" style="height: auto;"><img src="images/logo.png" width="16px" height="16px"/>幸福就是可以一起睡觉</div>
 		            	</a>
 					</li>
 					<li class="mui-table-view-cell mui-media mui-col-xs-6">
-		            	<a href="#">
+		            	<a href="comment.html?muwu">
 			                <img class="mui-media-object" src="images/muwu.jpg">
 			                <div class="mui-media-body author" style="height: auto;"><img src="images/logo.png" width="16px" height="16px"/>想要一间这样的木屋，静静的喝咖啡</div>
 		            	</a>
 					</li>
 					<li class="mui-table-view-cell mui-media mui-col-xs-6">
-		            	<a href="#">
+		            	<a href="comment.html?cbd">
 		            		<img class="mui-media-object" src="images/cbd.jpg">
 		                	<div class="mui-media-body author" style="height: auto;"><img src="images/logo.png" width="16px" height="16px"/>Color of SIP CBD</div>
 		            	</a>
@@ -108,7 +108,7 @@
 	<script src="js/mui.min.js"></script>
 	<script>
 		mui.init({
-			swipeBack:true //启用右滑关闭功能
+			swipeBack:true, //启用右滑关闭功能
 		});
 		
 		//图片轮播
@@ -157,7 +157,19 @@
 				inputElem.parentNode.classList.add('mui-active'); //第一个是search，加上激活样式
 			}, 200);
 		};
-		
-		
+
+		var backButtonPress = 0;
+		mui.back = function(event) {
+			backButtonPress++;
+			if (backButtonPress > 1) {
+				plus.runtime.quit();
+			} else {
+				plus.nativeUI.toast('再按一次退出应用');
+			}
+			setTimeout(function() {
+				backButtonPress = 0;
+			}, 1000);
+			return false;
+		};
 	</script>
 </html>

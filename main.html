@@ -27,7 +27,7 @@
 				<span class="mui-icon mui-icon-camera" style="float: right;" onclick="takePhotos()"></span>
 			</div>
 		</header>
-		<nav class="mui-bar mui-bar-tab">
+		<nav id="footer" class="mui-bar mui-bar-tab">
 			<a id="defaultTab" class="mui-tab-item mui-active" href="home.html">
 				<span class="mui-icon mui-icon-home"></span>
 				<span class="mui-tab-label">首页</span>
@@ -40,10 +40,6 @@
 				<span class="mui-icon mui-icon-star"></span>
 				<span class="mui-tab-label">设计圈</span>
 			</a>
-			<a class="mui-tab-item" href="message.html">
-				<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
-				<span class="mui-tab-label">消息</span>
-			</a>
 			<a class="mui-tab-item" href="mine.html">
 				<span class="mui-icon mui-icon-person"></span>
 				<span class="mui-tab-label">我的</span>
@@ -53,7 +49,7 @@
 		<script type="text/javascript" charset="utf-8"> 
 			 //mui初始化
 			mui.init();
-			var subpages = ['home.html', 'classification.html', 'circle.html', 'message.html','mine.html'];
+			var subpages = ['home.html', 'classification.html', 'circle.html','mine.html'];
 			var subpage_style = {
 				top: '0px',
 				bottom: '51px'
@@ -64,7 +60,7 @@
 			 //创建子页面，首个选项卡页面显示，其它均隐藏；
 			mui.plusReady(function() {
 				var self = plus.webview.currentWebview();
-				for (var i = 0; i < 5; i++) {
+				for (var i = 0; i < 4; i++) {
 					var temp = {};
 					var sub = plus.webview.create(subpages[i], subpages[i], subpage_style);
 					if (i > 0) {
@@ -76,7 +72,6 @@
 					self.append(sub);
 				}
 				
-				initNativeObjects();
 			});
 			 //当前激活选项
 			var activeTab = subpages[0];
@@ -86,16 +81,6 @@
 				var targetTab = this.getAttribute('href');
 				if (targetTab == activeTab) {
 					return;
-				}
-				//更换标题
-				if(this.querySelector('.mui-tab-label').innerHTML=='首页'){
-					title.innerHTML = '';
-				}else if(this.querySelector('.mui-tab-label').innerHTML=='分类'){
-					title.innerHTML = '';
-				}else if(this.querySelector('.mui-tab-label').innerHTML=='消息'){
-					title.innerHTML = '';
-				}else if(this.querySelector('.mui-tab-label').innerHTML=='我的'){
-					title.innerHTML = '';
 				}
 				
 				//显示目标选项卡
@@ -127,41 +112,7 @@
 				}
 			});
 			
-			var nativeWebview, imm, InputMethodManager;
-			var initNativeObjects = function() {
-				if (mui.os.android) {
-					var main = plus.android.runtimeMainActivity();
-					var Context = plus.android.importClass("android.content.Context");
-					InputMethodManager = plus.android.importClass("android.view.inputmethod.InputMethodManager");
-					imm = main.getSystemService(Context.INPUT_METHOD_SERVICE);
-				} else {
-					nativeWebview = plus.webview.currentWebview().nativeInstanceObject();
-				}
-			};
-			var showSoftInput = function() {
-				if (mui.os.android) {
-					imm.toggleSoftInput(0, InputMethodManager.SHOW_FORCED);
-				} else {
-					nativeWebview.plusCallMethod({
-						"setKeyboardDisplayRequiresUserAction": false
-					});
-				}
-				setTimeout(function() {
-					var inputElem = document.querySelector('input');
-					inputElem.focus();
-					inputElem.placeholder='pentagram';
-					inputElem.parentNode.classList.add('mui-active'); //第一个是search，加上激活样式
-				}, 200);
-			};
 			
-			function takePhotos(){
-				var camera = plus.camera.getCamera(1);
-				camera.captureImage(
-					function(path){
-						alert(path);
-					}
-				);
-			}
 		</script>
 	</body>
 

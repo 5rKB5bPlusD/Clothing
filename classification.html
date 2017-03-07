@@ -36,10 +36,20 @@
 	</head>
 
 	<body>
-		
+		<header id="header" class="mui-bar mui-bar-nav">
+			<div class="mui-input-row mui-search" onclick="showSoftInput()" style="width: 90%;float: left;">
+				<input type="search" class="mui-input-clear" placeholder="" data-input-clear="1" data-input-search="1">
+				<span class="mui-icon mui-icon-clear mui-hidden"></span>
+				<span class="mui-placeholder">
+					<span class="mui-icon mui-icon-search"></span>
+					<span></span>
+				</span>
+			</div>
+			<span class="mui-icon-extra mui-icon-extra-cart" style="float: right;margin-top: 10px;"></span>
+		</header>
 		<div class="mui-content">
 			<div class="mui-content mui-row mui-fullscreen">
-				<div class="mui-col-xs-3">
+				<div class="mui-col-xs-3" style="padding-top: 50px;">
 					<div id="segmentedControls" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
 						<a class="mui-control-item" data-index="0" href="#content1">裙子</a>
 						<a class="mui-control-item" data-index="1" href="#content2">上衣</a>
@@ -50,7 +60,7 @@
 					</div>
 				</div>
 				<div id="segmentedControlContents" class="mui-col-xs-9" style="border-left: 1px solid #c8c7cc;">
-					<div id="content1" class="mui-control-content">
+					<div id="content1" class="mui-control-content" style="margin-top: 40px;">
 						<ul class="mui-table-view mui-grid-view">
 							<li class="mui-table-view-cell mui-media mui-col-xs-6">
 					            <a href="#">
@@ -321,6 +331,20 @@
 				inputElem.placeholder='pentagram';
 				inputElem.parentNode.classList.add('mui-active'); //第一个是search，加上激活样式
 			}, 200);
+		};
+		
+		var backButtonPress = 0;
+		mui.back = function(event) {
+			backButtonPress++;
+			if (backButtonPress > 1) {
+				plus.runtime.quit();
+			} else {
+				plus.nativeUI.toast('再按一次退出应用');
+			}
+			setTimeout(function() {
+				backButtonPress = 0;
+			}, 1000);
+			return false;
 		};
 	</script>
 </html>

@@ -94,7 +94,11 @@
 			"css/home.css",
 			"images/logo.png",
 			"js/mui.min.js",
-			"fonts/mui.ttf"
+			"fonts/mui.ttf",
+			"comment.html"
+		],
+		"refer": [
+			"comment.html"
 		]
 	},
 	"html/login/login.html": {
@@ -112,14 +116,19 @@
 			"fonts/mui-icons-extra.ttf",
 			"css/icons-extra.css",
 			"images/logo.png",
-			"fonts/mui.ttf"
+			"fonts/mui.ttf",
+			"mine.html"
+		],
+		"refer": [
+			"mine.html"
 		]
 	},
 	"classification.html": {
 		"resources": [
 			"fonts/mui.ttf",
 			"css/mui.min.css",
-			"css/icons-extra.css"
+			"css/icons-extra.css",
+			"fonts/mui-icons-extra.ttf"
 		]
 	},
 	"circle.html": {
@@ -137,11 +146,23 @@
 			"fonts/mui.ttf",
 			"images/shuijiao.jpg",
 			"images/qq.png",
-			"images/60x60.gif"
+			"images/60x60.gif",
+			"message.html"
 		],
 		"refer": [
 			"main.html",
-			"index.html"
+			"index.html",
+			"message.html"
+		]
+	},
+	"comment.html": {
+		"resources": [
+			"css/home.css",
+			"css/mui.min.css",
+			"home.html"
+		],
+		"refer": [
+			"home.html"
 		]
 	}
 }
