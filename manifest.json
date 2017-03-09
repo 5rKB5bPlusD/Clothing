@@ -319,7 +319,8 @@
 				"resources": [
 					"css/home.css",
 					"css/mui.min.css",
-					"home.html"
+					"home.html",
+					"js/jquery.js"
 				],
 				"refer": [],
 				"priority": 0
